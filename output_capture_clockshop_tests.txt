@@ -1,0 +1,113 @@
+---CLOCKSHOP TESTS---
+CLOCKSHOP FILLCLOCKSHOP TESTS
+
+Testing one clock file (15, 40, 0)
+	PASSED single clock file
+
+Testing two clock file (17, 40, 0), (15, 40, 0)
+	PASSED two clock file
+
+Testing with 5 clock file:
+(23, 59, 59), (17, 50, 0), (19, 50, 0), (0, 0, 0), (9, 0, 0)
+	PASSED five clock file
+-------------------------------------------
+CLOCKSHOP TOSTRING TESTS
+Testing toString with empty ClockShop -- nothing should be printed as result of this test
+Note that fillClockShop tests also indirectly tests toString
+
+	PASSED toString for empty ClockShop
+-------------------------------------------
+CLOCKSHOP SETCLOCK TESTS
+Here are the clocks in the clock shop after filling with 5 clocks:
+12:12:12
+11:11:11
+12:12:12
+10:10:10
+11:11:10
+
+Testing negative index, IllegalArgumentException should occur
+	PASSED with negative index
+Testing index too large, IllegalArgumentException should occur
+	PASSED too large of an index - IllegalArgumentException thrown
+Testing index 0, should replace clock at that location
+	PASSED index 0: 10:11:12
+Testing index 4, should replace clock at that location
+	PASSED index 4: 12:11:10
+-------------------------------------------
+CLOCKSHOP GETCLOCK TESTS
+Here are the clocks in the clock shop after filling with 5 clocks:
+12:12:12
+11:11:11
+12:12:12
+10:10:10
+11:11:10
+
+Testing with index of -1, should throw an IllegalArgumentException
+	PASSED - threw an exception for -1
+Testing with index of 5, should throw an IllegalArgumentException
+	PASSED - threw an exception for index of 5
+Testing with index of 0, should return clock (12, 12, 12)
+	PASSED with index 0 12:12:12
+Testing with index of 4, should return clock (11, 11, 10)
+	PASSED - returned clock for index of 411:11:10
+-------------------------------------------
+CLOCKSHOP FINDCLOCK TESTS
+Here are the clocks in the clock shop after filling with 5 clocks:
+12:12:12
+11:11:11
+12:12:12
+10:10:10
+11:11:10
+
+Testing with clock not in clock shop (1, 1, 1)
+	PASSED on clock not in clock shop
+Testing with first clock in clock shop (12, 12, 12)
+	PASSED on clock at start of clock shop
+Testing with last clock in clock shop (11, 11, 10)
+	PASSED on clock at end of clock shop
+-------------------------------------------
+CLOCKSHOP WRITECLOCKSTOFILE TESTS
+Fill clock shop with 5 clocks, then write to file
+Clocks written, now let's read the file contents
+	PASSED write 5 clocks to file
+-------------------------------------------
+CLOCKSHOP SORTCLOCKS TESTS
+Testing with a single default clock
+Before: 
+23:58:00
+
+After: 
+23:58:00
+
+	PASSED single clock sort
+
+Testing with two clocks (12, 12, 12) and (11, 11, 11)
+Before: 
+12:12:12
+11:11:11
+
+After: 
+11:11:11
+12:12:12
+
+	PASSED two clock sort
+
+Testing with five clocks
+(12:12:12), (11:11:11), (12:12:12), (10:10:10), (11:11:10)
+Before: 
+12:12:12
+11:11:11
+12:12:12
+10:10:10
+11:11:10
+
+After: 
+10:10:10
+11:11:10
+11:11:11
+12:12:12
+12:12:12
+
+	PASSED five clock sort
+-------------------------------------------
+---END CLOCKSHOP TESTS---

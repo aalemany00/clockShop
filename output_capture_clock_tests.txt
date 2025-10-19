@@ -1,0 +1,90 @@
+---CLOCK TESTS---
+CLOCK DEFAULTCONSTRUCTOR TESTS
+Testing with no parameters - should default to 23, 58, 0
+	PASSED - default of 2 minutes to midnight: 23:58:00
+-------------------------------------------
+CLOCK TOSTRING TESTS
+Testing toString with 0, 0, 0 for hours, minutes and seconds
+	PASSED for 0, 0, 0: 00:00:00
+-------------------------------------------
+CLOCK EXPLICITVALUECONSTRUCTOR TESTS
+Testing constructing clock with 12 hours, 13, mins, 14 secs
+	PASSED setting to 12, 13, 14 12:13:14
+Testing with invalid minute, should throw IllegalArgumentException
+	PASSED - threw an IllegalArgumentException
+-------------------------------------------
+CLOCK SETHOUR TESTS
+Testing with hour of 0
+	PASSED setting hour to 0 0
+Testing with -1, should throw IllegalArgumentException
+	PASSED - threw an IllegalArgumentException
+Testing with 24, should throw IllegalArgumentException
+	PASSED - threw an IllegalArgumentException
+-------------------------------------------
+CLOCK SETMINUTE TESTS
+Testing with minute of 0
+	PASSED setting minute to 0: 0
+Testing with -1, should throw IllegalArgumentException
+	PASSED - threw an IllegalArgumentException
+Testing with 60, should throw IllegalArgumentException
+	PASSED -  threw an IllegalArgumentException
+-------------------------------------------
+CLOCK SETSECOND TESTS
+Testing with 59, second should be set to 59
+	PASSED setting to 59: 59
+Testing with -1, should throw IllegalArgumentException
+	PASSED: threw an IllegalArgumentException
+Testing with 60, should throw IllegalArgumentException
+	PASSED - threw an IllegalArgumentException
+-------------------------------------------
+CLOCK ADVANCEHOUR TESTS
+Testing with -1, should throw an IllegalArgumentException
+	PASSED threw IllegalArgumentException for -1
+Testing with 0, hour should remain the same
+	PASSED for 0
+Testing with 72, hour should remain the same
+	PASSED for 72
+Testing with 73, hour should advance by 1
+	PASSED for 73
+-------------------------------------------
+CLOCK ADVANCEMINUTE TESTS
+Testing with negative value, should throw an exception
+	PASSED throwing an IllegalArgumentException for -1
+Testing with value of zero, minute should be the same
+	PASSED for value of 0
+Testing with value of 59 when minute is 0
+	PASSED for 59
+Testing with value of 60, minute should be the same, hour should be +1
+	PASSED for 60 -- hour advanced by 1
+Testing with value of 1440, minute and hour should be the same
+	PASSED for 1440
+Testing with value of 1501, minute and hour should be 1
+	PASSED for 1501
+-------------------------------------------
+CLOCK EQUALS TESTS
+Testing two clocks equal
+	PASSED two equal clocks
+Testing two clocks not equal -- clock 3 11 seconds different
+	PASSED third clock 11 seconds different
+Testing two clocks not equal -- clock 4 41 minutes different
+	PASSED fourth clock 41 minutes different
+Testing two clocks not equal -- clock 5 11 hours different
+	PASSED fifth clock 11 hours different
+-------------------------------------------
+CLOCK COMPARETO TESTS
+Testing two different Clock objects that are the same for equality
+	PASSED two equal clocks
+Testing first clock less than third clock (seconds) 
+	PASSED first clock less than
+Testing first clock less than fourth clock (minutes)
+	PASSED first clock less
+Testing first clock less than fifth clock (hours)
+	PASSED first clock less
+Testing third clock greater than first clock (seconds)
+	PASSED third clock greater
+Testing fourth clock greater than first clock (minutes)
+	PASSED fourth clock greater
+Testing fifth clock greater than first clock (hours)
+	PASSED fifth clock greater
+-------------------------------------------
+---END CLOCK TESTS---
